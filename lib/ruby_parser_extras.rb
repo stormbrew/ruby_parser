@@ -168,7 +168,7 @@ class RubyParser < Racc::Parser
   end
 
   def aryset receiver, index
-    index[0] = :arglist if index[0] == :array
+    index[0] = :arglist if index && index[0] == :array
     s(:attrasgn, receiver, :"[]=", index)
   end
 
