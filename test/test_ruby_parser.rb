@@ -688,4 +688,11 @@ class TestRubyParser < RubyParserTestCase
 
     assert_parse rb, pt
   end
+
+  def test_index_0_opasgn
+    rb = "a[] += b"
+    pt = s(:op_asgn1, s(:call, nil, :a), nil, :+, s(:call, nil, :b))
+
+    assert_parse rb, pt
+  end
 end
